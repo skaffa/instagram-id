@@ -112,6 +112,7 @@ if __name__ == "__main__":
             cmd = username_to_id(arg2)
         else:
             print(PRINT_USAGE)
+            exit(1)
 
         if has_json2html:
             convert = input(f"{Fore.YELLOW}Do you want to convert the JSON to HTML? (y/n) > ").lower()
