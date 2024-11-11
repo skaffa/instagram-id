@@ -1,21 +1,16 @@
-Obtain user data from an instagram profile by either providing a username or user id.
-Take instagram's heavy rate-limits for unofficial endpoints into account when using this script.
+# Instagram Profile Data Fetcher
 
-User authentication is not required to use this script; in fact, it isn’t even possible unless I explicitly add that functionality.
+This script allows you to obtain user data from an Instagram profile by providing either a **username** or a **user ID**. 
 
-### Usage: `python main.py <id|username> <value>`
-## username value should be the user's handle (in case of instagram.com/therock `therock` would be the handle
-## id value can be acquired by first pulling the username through the script
+> **Note:** Be mindful of Instagram's strict rate limits for unofficial endpoints when using this script.
 
+## Authentication
 
-VPNs are wonky BTW
+No user authentication is required to use this script. However, please note that authentication is not possible unless explicitly added in future versions.
 
+## Usage
 
+To run the script, use the following command:
 
-### Working proof of concept at the time of writing
-
-### For educational purposes only
-
-
-
-thanks to https://github.com/culturally/Insta-OSINT/ for test.py
+```bash
+python main.py <id|username> <value>
