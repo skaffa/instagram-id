@@ -1,5 +1,4 @@
 from requests import get
-from bs4 import BeautifulSoup as bs4
 import json
 from colorama import init, Fore, Back
 import random
@@ -51,6 +50,10 @@ def username_to_id(username):
     url = USERNAME_TO_ID.replace("*USERNAME*", username)
     response = get(url, headers=HEADERS)
 
+    if not check_if_valid_json(response.content):
+        print(f"{COLOR}Error: {response.content}")
+        return
+
     j1 = json.loads(response.content)
     j2 = json.dumps(j1, indent=2)
 
@@ -61,6 +64,11 @@ def username_to_id(username):
 def id_to_username(user_id):
     url = ID_TO_USERNAME.replace("*USER_ID*", user_id)
     response = get(url, headers=HEADERS)
+
+    if not check_if_valid_json(response.content):
+        print(f"{COLOR}Error: {response.content}")
+        return
+
 
     j1 = json.loads(response.content)
     j2 = json.dumps(j1, indent=2)
@@ -82,6 +90,13 @@ def outputToHTML(data, vtype, value):
     full_path = os.path.abspath(filename)
 
     print(f"{COLOR}HTML saved to {full_path}")
+
+def check_if_valid_json(data):
+    try:
+        json.loads(data)
+        return True
+    except:
+        return False
 
 # username_to_id("bldwhrr")
 # id_to_username("64633874089")
